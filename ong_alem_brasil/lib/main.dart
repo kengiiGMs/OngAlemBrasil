@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ong_alem_brasil/Menu/login.dart';
 
 import 'homePage.dart';
 
@@ -18,7 +19,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => LoginPage(),
+         '/home': (context) => HomePage(),
+         },
     );
   }
 }
