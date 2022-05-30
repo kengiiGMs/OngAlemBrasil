@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 class InputField extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-   
     return Column(
       children: <Widget>[
         Container(
@@ -51,9 +50,7 @@ class InputField extends StatelessWidget{
 class Button extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-
     return Container(
-      
       height: 50,
       margin: EdgeInsets.symmetric(horizontal: 50),
       decoration: BoxDecoration(

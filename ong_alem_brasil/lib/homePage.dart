@@ -11,6 +11,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  static
   var _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -28,44 +29,41 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           title: Text("Ong Alem Brasil"),
-
         ),),
-
-
-        
-        bottomNavigationBar: SalomonBottomBar(
+            bottomNavigationBar: SalomonBottomBar(
           currentIndex: _currentIndex,
-          onTap: (i) => setState(() => _currentIndex = i),
+          onTap: (i){
+            switch(i){
+              case 0:
+                Navigator.pushNamed(context, "/");
+              break;
+            } setState(() => _currentIndex = i); 
+          },
           items: [
-            /// Home
             SalomonBottomBarItem(
               icon: Icon(Icons.home),
               title: Text("Inicio"),
-              selectedColor: Colors.purple,
+              selectedColor: Colors.red,
             ),
-
-            /// Likes
             SalomonBottomBarItem(
-              icon: Icon(Icons.favorite_border),
+              icon: Icon(Icons.assignment_rounded),
               title: Text("Cadastro"),
-              selectedColor: Colors.pink,
+              selectedColor: Colors.blue,
             ),
-
-            /// Search
             SalomonBottomBarItem(
-              icon: Icon(Icons.search),
+              icon: Icon(Icons.message),
               title: Text("Avisos"),
               selectedColor: Colors.orange,
             ),
-
-            /// Profile
             SalomonBottomBarItem(
               icon: Icon(Icons.person),
               title: Text("Conta"),
               selectedColor: Colors.teal,
             ),
           ],
+          
         ),
         );
   }
 }
+

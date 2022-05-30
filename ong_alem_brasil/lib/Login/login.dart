@@ -30,7 +30,8 @@ class LoginPage extends StatelessWidget {
                   )
               ),
               child: InputWrapper(),
-            ))
+            ),
+            ),
           ],
         ),
       ),

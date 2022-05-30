@@ -18,11 +18,20 @@ class InputWrapper extends StatelessWidget {
             child: InputField(),
           ),
           SizedBox(height: 20,),
-          Text(
-            "Esqueci minha senha",
-            style: TextStyle(color: Colors.grey),
+          InkWell(
+            child: Text(
+              "Esqueci minha senha",
+              style: TextStyle(color: Colors.grey), 
+            ),onTap: () {},
           ),
-          SizedBox(height: 20,),
+          
+           SizedBox(height: 20,),
+          InkWell(
+            child: Text(
+              "Criar uma conta",
+              style: TextStyle(color: Colors.grey),
+            ),onTap: () {},
+          ),
         ],
       ),
     );
