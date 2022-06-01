@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:ong_alem_brasil/Login/AlertDialogs.dart';
 
  String email = "";
     String password = "";
 
-/* Input */
 class InputField extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
@@ -45,7 +45,6 @@ class InputField extends StatelessWidget{
     );
   }
 }
-/* FimInput */
 
 class Button extends StatelessWidget{
   @override
@@ -54,13 +53,13 @@ class Button extends StatelessWidget{
       height: 50,
       margin: EdgeInsets.symmetric(horizontal: 50),
       decoration: BoxDecoration(
-        color: Colors.cyan[500],
+        color: Color.fromARGB(255, 14, 174, 62),
         borderRadius: BorderRadius.circular(10),
       ),
      child:  Center(
        child: Container(
-         width: 500,
-         height: 60,
+         width: 1300,
+         height: 70,
          child: TextButton(
                           child: Text(
                             "Entrar".toUpperCase(),
@@ -71,7 +70,7 @@ class Button extends StatelessWidget{
                                 password == "1234") {
                               Navigator.of(context).pushReplacementNamed('/home');
                             } else {
-                              Navigator.of(context).pushReplacementNamed('/');
+                              showAlertPassword(context);
                             }
                           },
                         ),

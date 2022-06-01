@@ -22,7 +22,9 @@ class InputWrapper extends StatelessWidget {
             child: Text(
               "Esqueci minha senha",
               style: TextStyle(color: Colors.grey), 
-            ),onTap: () {},
+            ),onTap: () {
+                          Navigator.of(context).pushNamed('/requestPassword');}
+                            
           ),
           
            SizedBox(height: 20,),
@@ -30,7 +32,9 @@ class InputWrapper extends StatelessWidget {
             child: Text(
               "Criar uma conta",
               style: TextStyle(color: Colors.grey),
-            ),onTap: () {},
+            ),onTap: () {
+               Navigator.of(context).pushNamed('/register');
+            },
           ),
         ],
       ),

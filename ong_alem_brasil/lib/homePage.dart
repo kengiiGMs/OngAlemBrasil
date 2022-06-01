@@ -85,8 +85,6 @@ class _HomePageState extends State<HomePage> {
           ],
           
         ),
-
-
         );
   }
 }
@@ -94,10 +92,3 @@ class _HomePageState extends State<HomePage> {
 
 
 
-/*  onTap: (i){
-            switch(i){
-              case 0:
-                Navigator.pushNamed(context, "/");
-              break;
-            } setState(() => _currentIndex = i); 
-          }, */
