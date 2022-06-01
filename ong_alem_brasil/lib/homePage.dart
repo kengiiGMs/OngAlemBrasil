@@ -1,5 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:ong_alem_brasil/Home/HomesPage.dart';
+import 'package:ong_alem_brasil/News/NewsPage.dart';
+import 'package:ong_alem_brasil/Profile/ProfilePage.dart';
+import 'package:ong_alem_brasil/Register/RegisterPage.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,8 +15,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  static
-  var _currentIndex = 0;
+  int pageNow = 0;
+  late PageController pc;
+
+  @override
+  void initState() {
+    super.initState();
+    pc = PageController(initialPage: pageNow);
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,15 +40,27 @@ class _HomePageState extends State<HomePage> {
             ),
           title: Text("Ong Alem Brasil"),
         ),),
+
+        body: PageView(
+          controller: pc,
+          children: [
+            HomesPage(),
+            RegisterPage(),
+            NewsPage(),
+            ProfilePage(),
+          ],
+        ),
             bottomNavigationBar: SalomonBottomBar(
-          currentIndex: _currentIndex,
+          currentIndex: pageNow,
+          
           onTap: (i){
-            switch(i){
-              case 0:
-                Navigator.pushNamed(context, "/");
-              break;
-            } setState(() => _currentIndex = i); 
-          },
+            pc.animateToPage(
+              i,
+              duration: Duration(milliseconds: 400),
+              curve: Curves.ease,
+            );
+           setState(() => pageNow = i); 
+          }, 
           items: [
             SalomonBottomBarItem(
               icon: Icon(Icons.home),
@@ -63,7 +85,19 @@ class _HomePageState extends State<HomePage> {
           ],
           
         ),
+
+
         );
   }
 }
 
+
+
+
+/*  onTap: (i){
+            switch(i){
+              case 0:
+                Navigator.pushNamed(context, "/");
+              break;
+            } setState(() => _currentIndex = i); 
+          }, */
