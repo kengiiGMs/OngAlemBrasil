@@ -52,7 +52,6 @@ class _HomePageState extends State<HomePage> {
         ),
             bottomNavigationBar: SalomonBottomBar(
           currentIndex: pageNow,
-          
           onTap: (i){
             pc.animateToPage(
               i,
@@ -83,7 +82,6 @@ class _HomePageState extends State<HomePage> {
               selectedColor: Colors.teal,
             ),
           ],
-          
         ),
         );
   }

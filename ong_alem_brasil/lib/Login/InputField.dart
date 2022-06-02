@@ -49,7 +49,37 @@ class InputField extends StatelessWidget{
 class Button extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Center(
+                child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                      fixedSize: const Size(350, 45), 
+                      primary: Color.fromARGB(255, 14, 174, 62),
+                      shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10))
+                      ),
+                   onPressed: () {
+                            if (email == "mahki@hotmail.com" &&
+                                password == "1234") {
+                              Navigator.of(context).pushReplacementNamed('/home');
+                            } else {
+                              showAlertPassword(context);
+                            }
+                          },
+                  child: const Text('ENTRAR', style: TextStyle(fontSize: 17),),
+                )
+          );
+  }
+}
+
+
+/* 
+
+              ), */
+
+
+
+
+  /*             Container(
       height: 50,
       margin: EdgeInsets.symmetric(horizontal: 50),
       decoration: BoxDecoration(
@@ -76,6 +106,4 @@ class Button extends StatelessWidget{
                         ),
        ),
      ),
-    );
-  }
-}
+    ); */
