@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class RequestPasswordPage extends StatefulWidget {
   const RequestPasswordPage({ Key? key }) : super(key: key);
@@ -10,8 +11,14 @@ class RequestPasswordPage extends StatefulWidget {
 class _RequestPasswordPageState extends State<RequestPasswordPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(child: Text("Recuperar Senha")),
+    return Scaffold(
+      appBar: AppBar(),
+      body: Container(
+        padding: EdgeInsets.all(20),
+
+      ),
     );
   }
 }
+
+

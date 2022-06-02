@@ -14,12 +14,12 @@ class LoginPage extends StatelessWidget {
           gradient: LinearGradient(begin: Alignment.topCenter, colors: [
             Colors.lightGreen,
               Colors.green,
-              Colors.greenAccent
+              Colors.lightGreenAccent,
           ]),
         ),
         child: Column(
           children: <Widget>[
-            SizedBox(height: 80,),
+            SizedBox(height: 60,),
             Header(),
             Expanded(child: Container(
               decoration: BoxDecoration(

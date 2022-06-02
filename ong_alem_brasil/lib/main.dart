@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ong_alem_brasil/CreateProfile/CreateProfilePage.dart';
 import 'package:ong_alem_brasil/Login/login.dart';
 import 'package:ong_alem_brasil/Profile/ProfilePage.dart';
 
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
          '/news':(context) => NewsPage(),
          '/homes':(context) => HomesPage(),
         '/requestPassword':(context) => RequestPasswordPage(),
+        '/createProfile':(context) => CreateProfilePage(),
          },
     );
   }

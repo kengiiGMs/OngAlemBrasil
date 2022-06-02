@@ -33,7 +33,7 @@ class InputWrapper extends StatelessWidget {
               "Criar uma conta",
               style: TextStyle(color: Colors.grey),
             ),onTap: () {
-               Navigator.of(context).pushNamed('/register');
+               Navigator.of(context).pushNamed('/createProfile');
             },
           ),
         ],

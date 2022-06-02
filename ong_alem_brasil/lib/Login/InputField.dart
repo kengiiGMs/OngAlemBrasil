@@ -18,7 +18,7 @@ class InputField extends StatelessWidget{
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
               labelText: "Email",
-              hintText: "Entre com seu email",
+              hintText: "Digite o seu email",
               hintStyle: TextStyle(color: Colors.grey),
             ),
           ),
@@ -32,7 +32,7 @@ class InputField extends StatelessWidget{
             obscureText: true,
             decoration: InputDecoration(
               labelText: "Senha",
-                hintText: "Entre com sua senha",
+                hintText: "Digite a sua senha",
                 hintStyle: TextStyle(color: Colors.grey),
                 
             ),
