@@ -43,6 +43,11 @@ class _HomePageState extends State<HomePage> {
 
         body: PageView(
           controller: pc,
+          onPageChanged: (index){
+            setState(() {
+              pageNow = index;
+            });
+          },
           children: [
             HomesPage(),
             RegisterPage(),
