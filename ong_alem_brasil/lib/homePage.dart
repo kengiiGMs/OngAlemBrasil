@@ -32,6 +32,25 @@ class _HomePageState extends State<HomePage> {
         child: AppBar(
            shape: RoundedRectangleBorder(borderRadius: BorderRadius.only( bottomRight: Radius.circular(30))),
           centerTitle: true,
+          leading: Padding(
+            padding: EdgeInsets.only(right: 10.0),
+              child:PopupMenuButton(
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                itemBuilder: (context) => [
+                  PopupMenuItem(
+                    child: Row(
+                      children: [
+                        Icon(Icons.offline_bolt,color: Colors.amber,),
+                        Padding(
+                          padding: EdgeInsets.only(left: 10),
+                          child: Text('Item 1 '),
+                        ),  
+                      ],
+                    ),
+                  ),
+                ],
+                child: Icon(Icons.list,size: 35.0,)),
+            ),
           flexibleSpace: 
             Container(
               decoration: BoxDecoration(
