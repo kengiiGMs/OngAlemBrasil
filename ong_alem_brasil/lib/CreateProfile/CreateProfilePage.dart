@@ -102,7 +102,11 @@ class _FormsProfileState extends State<FormsProfile> {
            Container(
             padding: EdgeInsets.fromLTRB(30,7,30,7),
             child: TextFormField(
+              obscureText: true,
+              enableSuggestions: false,
+              autocorrect: false,
              decoration: const InputDecoration(
+              
               border: UnderlineInputBorder(),
                 labelText: 'Senha',
                 hintText: "Digite a sua Senha",
@@ -118,6 +122,9 @@ class _FormsProfileState extends State<FormsProfile> {
            Container(
             padding: EdgeInsets.fromLTRB(30,7,30,17),
             child: TextFormField(
+              obscureText: true,
+              enableSuggestions: false,
+              autocorrect: false,
              decoration: const InputDecoration(
               border: UnderlineInputBorder(),
                 labelText: 'Confirme a sua Senha',

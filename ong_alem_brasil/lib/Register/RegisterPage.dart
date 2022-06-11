@@ -15,33 +15,31 @@ class _RegisterPageState extends State<RegisterPage> {
     return Scaffold(
         body:SingleChildScrollView(
           child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.fromLTRB(10, 30, 10, 60),
           child: Center(
-            child: SizedBox(width: 500,
+            child: SizedBox(
               child: Container(
-                
-                margin: new EdgeInsets.only(bottom: 100.0),
-                 decoration: BoxDecoration(
+                width: 900,
+                decoration: BoxDecoration(
                 border: Border.all(
                   color: Colors.green,
                   width: 4.0,
                   style: BorderStyle.solid),
                     borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(90),
+                    topRight: Radius.circular(90),
                     topLeft: Radius.circular(30),
                     bottomRight: Radius.circular(20),
                     bottomLeft: Radius.circular(20),
                     ),
                   ),
-                width: 400,
                 child: Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.all(10.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(bottom: 14.0),
+                        padding: const EdgeInsets.only(bottom: 10.0),
                         child: Center(child: Text("Cadastro de Famílias", style: TextStyle(fontSize: 30,color: Color.fromARGB(255, 14, 174, 62,),))),
                       ),
                       Text("Insira os dados", style: TextStyle(color: Color.fromARGB(255, 14, 174, 62),)),
@@ -131,7 +129,8 @@ class _RegisterPageState extends State<RegisterPage> {
                                 borderRadius: BorderRadius.circular(10))
                                 ),onPressed: () {}, child: Text("CADASTRAR", style: TextStyle(fontSize: 15),)),
                       ),
-                  ]),
+                    ],
+                  ),
                 ),
               ),
             ),

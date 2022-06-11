@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ong_alem_brasil/Home/HomesPage.dart';
-import 'package:ong_alem_brasil/News/NewsPage.dart';
+import 'package:ong_alem_brasil/Change/ChangePage.dart';
 import 'package:ong_alem_brasil/Profile/ProfilePage.dart';
+import 'package:ong_alem_brasil/Query/QueryPage.dart';
 import 'package:ong_alem_brasil/Register/RegisterPage.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
@@ -29,87 +29,100 @@ class _HomePageState extends State<HomePage> {
       extendBody: true,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(70),
-        child: AppBar(
-           shape: RoundedRectangleBorder(borderRadius: BorderRadius.only( bottomRight: Radius.circular(30))),
-          centerTitle: true,
-          leading: Padding(
-            padding: EdgeInsets.only(right: 10.0),
-              child:PopupMenuButton(
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-                itemBuilder: (context) => [
-                  PopupMenuItem(
-                    child: Row(
-                      children: [
-                        Icon(Icons.offline_bolt,color: Colors.amber,),
-                        Padding(
-                          padding: EdgeInsets.only(left: 10),
-                          child: Text('Item 1 '),
-                        ),  
-                      ],
-                    ),
-                  ),
-                ],
-                child: Icon(Icons.list,size: 35.0,)),
-            ),
-          flexibleSpace: 
-            Container(
-              decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(bottomRight: Radius.circular(30)),
+          child: AppBar(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only( bottomRight: Radius.circular(30),
               ),
             ),
-          title: Text("Ong Alem Brasil"),
-        ),),
-
+            centerTitle: true,
+              leading: Padding(
+                padding: EdgeInsets.only(right: 10.0),
+                  child:PopupMenuButton(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    itemBuilder: (context) => [
+                      PopupMenuItem(
+                        child: Row(
+                          children: [
+                            Icon(Icons.offline_bolt,color: Colors.amber,),
+                            Padding(
+                              padding: EdgeInsets.only(left: 10),
+                              child: Text('Item 1 '),
+                            ),  
+                          ],
+                        ),
+                      ),
+                    ],
+                      child: Icon(
+                        Icons.list,size: 35.0,
+                      ),
+                    ),
+                ),
+            flexibleSpace: 
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    bottomRight: Radius.circular(30),
+                  ),
+                ),
+              ),
+            title: Text("Ong Alem Brasil"),
+          ),
+        ),
         body: PageView(
           controller: pc,
           onPageChanged: (index){
             setState(() {
               pageNow = index;
-            });
+              },
+            );
           },
           children: [
-            HomesPage(),
+            QueryPage(),
             RegisterPage(),
-            NewsPage(),
+            ChangePage(),
             ProfilePage(),
           ],
         ),
             bottomNavigationBar: SalomonBottomBar(
-          currentIndex: pageNow,
-          onTap: (i){
-            pc.animateToPage(
-              i,
-              duration: Duration(milliseconds: 400),
-              curve: Curves.ease,
-            );
-           setState(() => pageNow = i); 
-          }, 
-          items: [
-            SalomonBottomBarItem(
-              icon: Icon(Icons.home),
-              title: Text("Inicio"),
-              selectedColor: Colors.red,
+              currentIndex: pageNow,
+              onTap: (i){
+                pc.animateToPage(
+                  i,
+                  duration: Duration(milliseconds: 400),
+                  curve: Curves.ease,
+                );
+                setState(() => pageNow = i); 
+              }, 
+              items: [
+                SalomonBottomBarItem(
+                  icon: Icon(Icons.content_paste_search_outlined),
+                  title: Text("Consulta"),
+                  selectedColor: Colors.red,
+                ),
+                SalomonBottomBarItem(
+                  icon: Icon(Icons.assignment_rounded),
+                  title: Text("Cadastro"),
+                  selectedColor: Colors.blue,
+                ),
+                SalomonBottomBarItem(
+                  icon: Icon(Icons.app_registration),
+                  title: Text("Alteração"),
+                  selectedColor: Colors.orange,
+                ),
+                SalomonBottomBarItem(
+                  icon: Icon(Icons.person),
+                  title: Text("Conta"),
+                  selectedColor: Colors.teal,
+                ),
+              ],
             ),
-            SalomonBottomBarItem(
-              icon: Icon(Icons.assignment_rounded),
-              title: Text("Cadastro"),
-              selectedColor: Colors.blue,
-            ),
-            SalomonBottomBarItem(
-              icon: Icon(Icons.message),
-              title: Text("Avisos"),
-              selectedColor: Colors.orange,
-            ),
-            SalomonBottomBarItem(
-              icon: Icon(Icons.person),
-              title: Text("Conta"),
-              selectedColor: Colors.teal,
-            ),
-          ],
-        ),
-        );
+      );
   }
 }
+
+
 
 
 
