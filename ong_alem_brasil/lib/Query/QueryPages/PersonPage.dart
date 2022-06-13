@@ -22,8 +22,28 @@ class _PersonPageState extends State<PersonPage> {
             ),
           ),
           Text("Pessoas"),
+          Center(
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        Container(
+                          child: Row(
+                            children: [
+                              Text("Nome |"),
+                              Text(" Celular |"),
+                              Text(" Email |"),
+                              Text(" CEP "),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+            ),
+          )
         ],
       ),
     );
   }
 }
+/* https://www.syncfusion.com/flutter-widgets/flutter-datagrid?gclid=EAIaIQobChMI3s30noGr-AIVdhbUAR0zgwADEAAYASAAEgLWY_D_BwE */

@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ong_alem_brasil/Change/ChangePage.dart';
 import 'package:ong_alem_brasil/Profile/ProfilePage.dart';
 import 'package:ong_alem_brasil/Query/QueryPage.dart';
 import 'package:ong_alem_brasil/Register/RegisterPage.dart';
@@ -16,7 +15,6 @@ class _HomePageState extends State<HomePage> {
   List<Widget> _pages = [
     QueryPage(),
     RegisterPage(),
-    ChangePage(),
     ProfilePage(),
   ];
 
@@ -52,6 +50,13 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
           bottomNavigationBar: BottomNavigationBar(
+            selectedIconTheme: IconThemeData(color: Colors.lightGreenAccent, size: 28),
+            selectedItemColor: Colors.lightGreenAccent,
+            backgroundColor: Colors.green,
+            unselectedIconTheme: IconThemeData(
+              color: Colors.white,
+            ),
+              unselectedItemColor: Colors.white,
             onTap: (index){
                 setState(() { pageNow = index;}); 
               }, 
@@ -68,16 +73,11 @@ class _HomePageState extends State<HomePage> {
                   label: "CADASTRO"
                 ),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.app_registration),
-                  backgroundColor: Colors.green,
-                  label: "ALTERAR"
-                ),
-              BottomNavigationBarItem(
                   icon: Icon(Icons.person),
                   backgroundColor: Colors.green,
                   label: "PERFIL"
                 ),
-            ]
+            ],
           ),
     );
   }
