@@ -11,7 +11,9 @@ class _ChangePageState extends State<ChangePage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Center(child: Text("Alterar")),
+      child: Center(
+        child: Text("Alterar"),
+      ),
     );
   }
 }

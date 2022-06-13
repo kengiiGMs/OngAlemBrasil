@@ -13,8 +13,8 @@ class InputField extends StatelessWidget{
           padding: EdgeInsets.all(10),
           child: TextField(
             onChanged: (text) {
-                    email = text;
-                  },
+              email = text;
+            },
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
               labelText: "Email",
@@ -34,14 +34,12 @@ class InputField extends StatelessWidget{
               labelText: "Senha",
                 hintText: "Digite a sua senha",
                 hintStyle: TextStyle(color: Colors.grey),
-                
             ),
           ),
         ),
-        SizedBox(height: 10,),
-        Button(),
+          SizedBox(height: 10,),
+          Button(),
       ],
-    
     );
   }
 }
@@ -50,60 +48,26 @@ class Button extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Center(
-                child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                      fixedSize: const Size(350, 45), 
-                      primary: Color.fromARGB(255, 14, 174, 62),
-                      shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10))
-                      ),
-                   onPressed: () {
-                            if (email == "mahki@hotmail.com" &&
-                                password == "1234") {
-                              Navigator.of(context).pushReplacementNamed('/home');
-                            } else {
-                              showAlertPassword(context);
-                            }
-                          },
-                  child: const Text('ENTRAR', style: TextStyle(fontSize: 17),),
-                )
-          );
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          fixedSize: const Size(350, 45), 
+          primary: Color.fromARGB(255, 14, 174, 62),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          )
+        ),
+        onPressed: () {
+          if (email == "mahki@hotmail.com" &&password == "1234") {
+            Navigator.of(context).pushReplacementNamed('/home');
+          } else {
+            showAlertPassword(context);
+          }
+        },
+        child: const Text('ENTRAR', style: TextStyle(fontSize: 17),
+        ),
+      ),
+    );
   }
 }
 
 
-/* 
-
-              ), */
-
-
-
-
-  /*             Container(
-      height: 50,
-      margin: EdgeInsets.symmetric(horizontal: 50),
-      decoration: BoxDecoration(
-        color: Color.fromARGB(255, 14, 174, 62),
-        borderRadius: BorderRadius.circular(10),
-      ),
-     child:  Center(
-       child: Container(
-         width: 1300,
-         height: 70,
-         child: TextButton(
-                          child: Text(
-                            "Entrar".toUpperCase(),
-                            style: TextStyle(fontSize: 17, color: Colors.white),
-                          ),
-                          onPressed: () {
-                            if (email == "mahki@hotmail.com" &&
-                                password == "1234") {
-                              Navigator.of(context).pushReplacementNamed('/home');
-                            } else {
-                              showAlertPassword(context);
-                            }
-                          },
-                        ),
-       ),
-     ),
-    ); */

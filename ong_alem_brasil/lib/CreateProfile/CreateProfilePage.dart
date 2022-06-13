@@ -12,9 +12,8 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       appBar: AppBar(),
-      body: 
-        Center(child: FormsProfile(),),
+      appBar: AppBar(),
+      body: Center(child: FormsProfile(),),
     );
   }
 }
@@ -34,134 +33,134 @@ class _FormsProfileState extends State<FormsProfile> {
       children: [
         Form(
           key: _formKey2,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(height: 20,),
-           Center(
-            child: Text("Criação de Conta", 
-            style: TextStyle(
-              fontSize: 40, fontWeight: FontWeight.bold,),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 20,),
+                Center(
+                  child: Text("Criação de Conta", 
+                    style: TextStyle(
+                      fontSize: 40, fontWeight: FontWeight.bold,),
+                  ),
+                ), 
+              Container(
+                margin: EdgeInsets.fromLTRB(55, 12, 55, 0),
+                child: Center(
+                  child: Text("Criar a sua Conta",
+                    textAlign: TextAlign.justify, style: TextStyle(fontSize: 15),),
+                ),
               ),
-            ), 
-          Container(
-            margin: EdgeInsets.fromLTRB(55, 12, 55, 0),
-            child: Center(
-              child: Text("Criar a sua Conta",
-              textAlign: TextAlign.justify, style: TextStyle(fontSize: 15),),
-            ),
-            ),
-             Container(
-            padding: EdgeInsets.fromLTRB(30,7,30,7),
-            child: TextFormField(
-             decoration: const InputDecoration(
-              border: UnderlineInputBorder(),
-                labelText: 'Nome',
-                hintText: "Digite o Nome",
+              Container(
+                padding: EdgeInsets.fromLTRB(30,7,30,7),
+                child: TextFormField(
+                  decoration: const InputDecoration(
+                  border: UnderlineInputBorder(),
+                  labelText: 'Nome',
+                  hintText: "Digite o Nome",
+                ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Digite o seu Nome';
+                    }
+                    return null;
+                  },
+                ),
               ),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Digite o seu Nome';
-                }
-                return null;
-              },
-            ),
-          ),
-           Container(
-            padding: EdgeInsets.fromLTRB(30,7,30,7),
-            child: TextFormField(
-             decoration: const InputDecoration(
-              border: UnderlineInputBorder(),
-                labelText: 'Sobrenome',
-                hintText: "Digite o seu sobrenome",
+              Container(
+                padding: EdgeInsets.fromLTRB(30,7,30,7),
+                child: TextFormField(
+                  decoration: const InputDecoration(
+                    border: UnderlineInputBorder(),
+                    labelText: 'Sobrenome',
+                    hintText: "Digite o seu sobrenome",
+                  ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Digite o seu Sobrenome';
+                    }
+                      return null;
+                  },
+                ),
               ),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Digite o seu Sobrenome';
-                }
-                return null;
-              },
-            ),
-          ),
-           Container(
-            padding: EdgeInsets.fromLTRB(30,7,30,7),
-            child: TextFormField(
-             decoration: const InputDecoration(
-              border: UnderlineInputBorder(),
-                labelText: 'Email',
-                hintText: "Digite o seu Email",
+              Container(
+                padding: EdgeInsets.fromLTRB(30,7,30,7),
+                child: TextFormField(
+                  decoration: const InputDecoration(
+                    border: UnderlineInputBorder(),
+                    labelText: 'Email',
+                    hintText: "Digite o seu Email",
+                  ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Digite o seu Email';
+                    }
+                      return null;
+                  },
+                ),
               ),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Digite o seu Email';
-                }
-                return null;
-              },
-            ),
-          ),
-           Container(
-            padding: EdgeInsets.fromLTRB(30,7,30,7),
-            child: TextFormField(
-              obscureText: true,
-              enableSuggestions: false,
-              autocorrect: false,
-             decoration: const InputDecoration(
-              
-              border: UnderlineInputBorder(),
-                labelText: 'Senha',
-                hintText: "Digite a sua Senha",
+              Container(
+                padding: EdgeInsets.fromLTRB(30,7,30,7),
+                child: TextFormField(
+                  obscureText: true,
+                  enableSuggestions: false,
+                  autocorrect: false,
+                  decoration: const InputDecoration(
+                    border: UnderlineInputBorder(),
+                    labelText: 'Senha',
+                    hintText: "Digite a sua Senha",
+                  ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Digite a sua Senha';
+                    }
+                      return null;
+                  },
+                ),
               ),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Digite a sua Senha';
-                }
-                return null;
-              },
-            ),
-          ),
-           Container(
-            padding: EdgeInsets.fromLTRB(30,7,30,17),
-            child: TextFormField(
-              obscureText: true,
-              enableSuggestions: false,
-              autocorrect: false,
-             decoration: const InputDecoration(
-              border: UnderlineInputBorder(),
-                labelText: 'Confirme a sua Senha',
-                hintText: "Digite a sua Senha",
+              Container(
+                padding: EdgeInsets.fromLTRB(30,7,30,17),
+                child: TextFormField(
+                  obscureText: true,
+                  enableSuggestions: false,
+                  autocorrect: false,
+                  decoration: const InputDecoration(
+                    border: UnderlineInputBorder(),
+                    labelText: 'Confirme a sua Senha',
+                    hintText: "Digite a sua Senha",
+                  ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Confirme a sua Senha';
+                    }
+                      return null;
+                  },
+                ),
               ),
-              validator: (value) {
-                if (value == null || value.isEmpty) {
-                  return 'Confirme a sua Senha';
-                }
-                return null;
-              },
-            ),
-          ),
-            Center(
+              Center(
                 child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                      fixedSize: const Size(350, 45), 
-                      primary: Color.fromARGB(255, 14, 174, 62),
-                      shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10))
-                      ),
-        
+                  style: ElevatedButton.styleFrom(
+                    fixedSize: const Size(350, 45), 
+                    primary: Color.fromARGB(255, 14, 174, 62),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    )
+                  ),
                   onPressed: () {
                     if (_formKey2.currentState!.validate()) {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Processing Data')),
+                        const SnackBar(content: Text('Processing Data'),
+                        ),
                       );
                     }
                   },
                   child: const Text('ENVIAR',style: TextStyle(fontSize: 17),),
                 ),
               ),
-          
-        ],
-      ),)
+            ],
+          ),
+        ),
       ],
-      );
+    );
   }
 }
 

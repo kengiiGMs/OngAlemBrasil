@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:ong_alem_brasil/CreateProfile/CreateProfilePage.dart';
 import 'package:ong_alem_brasil/Login/login.dart';
 import 'package:ong_alem_brasil/Profile/ProfilePage.dart';
-
+import 'package:ong_alem_brasil/Profile/ProfilePages/HelpPage.dart';
 import 'Change/ChangePage.dart';
+import 'Profile/ProfilePages/ChangeProfilePage.dart';
 import 'Query/QueryPage.dart';
 import 'Register/RegisterPage.dart';
 import 'RequestPassword/RequestPasswordPage.dart';
@@ -12,10 +13,8 @@ import 'homePage.dart';
 void main() {
   runApp(const MyApp());
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -34,7 +33,10 @@ class MyApp extends StatelessWidget {
         '/change':(context) => ChangePage(),
         '/requestPassword':(context) => RequestPasswordPage(),
         '/createProfile':(context) => CreateProfilePage(),
-        },
+        '/helpProfile':(context) => HelpPage(),
+        '/changeProfile':(context) => ChangeProfilePage(),
+        
+      },
     );
   }
 }

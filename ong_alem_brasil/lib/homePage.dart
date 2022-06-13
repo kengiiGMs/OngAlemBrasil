@@ -4,25 +4,22 @@ import 'package:ong_alem_brasil/Change/ChangePage.dart';
 import 'package:ong_alem_brasil/Profile/ProfilePage.dart';
 import 'package:ong_alem_brasil/Query/QueryPage.dart';
 import 'package:ong_alem_brasil/Register/RegisterPage.dart';
-import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({ Key? key }) : super(key: key);
-  static final title = 'salomon_bottom_bar';
-
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
   int pageNow = 0;
-  late PageController pc;
+  List<Widget> _pages = [
+    QueryPage(),
+    RegisterPage(),
+    ChangePage(),
+    ProfilePage(),
+  ];
 
-  @override
-  void initState() {
-    super.initState();
-    pc = PageController(initialPage: pageNow);
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,27 +34,6 @@ class _HomePageState extends State<HomePage> {
             centerTitle: true,
               leading: Padding(
                 padding: EdgeInsets.only(right: 10.0),
-                  child:PopupMenuButton(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    itemBuilder: (context) => [
-                      PopupMenuItem(
-                        child: Row(
-                          children: [
-                            Icon(Icons.offline_bolt,color: Colors.amber,),
-                            Padding(
-                              padding: EdgeInsets.only(left: 10),
-                              child: Text('Item 1 '),
-                            ),  
-                          ],
-                        ),
-                      ),
-                    ],
-                      child: Icon(
-                        Icons.list,size: 35.0,
-                      ),
-                    ),
                 ),
             flexibleSpace: 
               Container(
@@ -71,59 +47,39 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         body: PageView(
-          controller: pc,
-          onPageChanged: (index){
-            setState(() {
-              pageNow = index;
-              },
-            );
-          },
           children: [
-            QueryPage(),
-            RegisterPage(),
-            ChangePage(),
-            ProfilePage(),
+            _pages[pageNow],
           ],
         ),
-            bottomNavigationBar: SalomonBottomBar(
-              currentIndex: pageNow,
-              onTap: (i){
-                pc.animateToPage(
-                  i,
-                  duration: Duration(milliseconds: 400),
-                  curve: Curves.ease,
-                );
-                setState(() => pageNow = i); 
+          bottomNavigationBar: BottomNavigationBar(
+            onTap: (index){
+                setState(() { pageNow = index;}); 
               }, 
-              items: [
-                SalomonBottomBarItem(
-                  icon: Icon(Icons.content_paste_search_outlined),
-                  title: Text("Consulta"),
-                  selectedColor: Colors.red,
-                ),
-                SalomonBottomBarItem(
+            currentIndex: pageNow,
+            items: [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.content_paste_search_outlined),
+                backgroundColor: Colors.green,
+                label: "CONSULTA"
+              ),
+              BottomNavigationBarItem(
                   icon: Icon(Icons.assignment_rounded),
-                  title: Text("Cadastro"),
-                  selectedColor: Colors.blue,
+                  backgroundColor: Colors.green,
+                  label: "CADASTRO"
                 ),
-                SalomonBottomBarItem(
+              BottomNavigationBarItem(
                   icon: Icon(Icons.app_registration),
-                  title: Text("Alteração"),
-                  selectedColor: Colors.orange,
+                  backgroundColor: Colors.green,
+                  label: "ALTERAR"
                 ),
-                SalomonBottomBarItem(
+              BottomNavigationBarItem(
                   icon: Icon(Icons.person),
-                  title: Text("Conta"),
-                  selectedColor: Colors.teal,
+                  backgroundColor: Colors.green,
+                  label: "PERFIL"
                 ),
-              ],
-            ),
-      );
+            ]
+          ),
+    );
   }
 }
-
-
-
-
-
 

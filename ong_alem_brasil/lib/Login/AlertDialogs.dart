@@ -1,12 +1,9 @@
-
 import 'package:flutter/material.dart';
-
-showAlertPassword(BuildContext context) 
-{ 
+showAlertPassword(BuildContext context){ 
   Widget okButton = FlatButton(
     child: Text("OK"),
     onPressed: () { 
-     Navigator.of(context).pushReplacementNamed('/');},
+      Navigator.of(context).pushReplacementNamed('/');},
   );
   AlertDialog alerta = AlertDialog(
     title: Text("Conta ou Senha incorretas"),

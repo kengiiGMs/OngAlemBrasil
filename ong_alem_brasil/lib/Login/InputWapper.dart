@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'InputField.dart';
 
 class InputWrapper extends StatelessWidget {
@@ -22,8 +21,10 @@ class InputWrapper extends StatelessWidget {
             child: Text(
               "Esqueci minha senha",
               style: TextStyle(color: Colors.grey), 
-            ),onTap: () {
-                          Navigator.of(context).pushNamed('/requestPassword');}
+            ),
+            onTap: () {
+              Navigator.of(context).pushNamed('/requestPassword');
+            }
                             
           ),
           
@@ -33,7 +34,7 @@ class InputWrapper extends StatelessWidget {
               "Criar uma conta",
               style: TextStyle(color: Colors.grey),
             ),onTap: () {
-               Navigator.of(context).pushNamed('/createProfile');
+              Navigator.of(context).pushNamed('/createProfile');
             },
           ),
         ],
