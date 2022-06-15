@@ -37,7 +37,7 @@ with SingleTickerProviderStateMixin {
                 children: [
                   SizedBox(
                     child: Container(
-                      width: 90,
+                      width: 112,
                         margin: EdgeInsets.fromLTRB(20, 20, 20, 15),
                           decoration: BoxDecoration(
                             border: Border.all(
@@ -49,8 +49,8 @@ with SingleTickerProviderStateMixin {
                             ),
                           ),
                         child:Padding(
-                          padding: const EdgeInsets.all(4.0),
-                          child: Text("Funcionario"),
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text("Administrador"),
                         ),
                     ),
                   ),
@@ -101,7 +101,12 @@ with SingleTickerProviderStateMixin {
                           child: TabBarView(
                             controller: tabController,
                             children: [
-                              PersonPage(),
+                              Center(
+                                child: Container(
+                                  margin: EdgeInsets.fromLTRB(20, 10, 20, 20),
+                                  child: PersonPage(),
+                                  ),
+                              ),
                               FoodStampsPage(),
                               BillPage(),
                             ],

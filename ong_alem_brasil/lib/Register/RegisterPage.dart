@@ -38,7 +38,7 @@ with SingleTickerProviderStateMixin {
                 children: [
                   SizedBox(
                     child: Container(
-                      width: 90,
+                      width: 112,
                         margin: EdgeInsets.fromLTRB(20, 20, 20, 15),
                           decoration: BoxDecoration(
                             border: Border.all(
@@ -50,8 +50,8 @@ with SingleTickerProviderStateMixin {
                             ),
                           ),
                         child:Padding(
-                          padding: const EdgeInsets.all(4.0),
-                          child: Text("Funcionario"),
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text("Administrador"),
                         ),
                     ),
                   ),

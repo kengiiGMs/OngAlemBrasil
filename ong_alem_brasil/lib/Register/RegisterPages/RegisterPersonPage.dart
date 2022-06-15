@@ -42,7 +42,7 @@ class _RegisterPersonPageState extends State<RegisterPersonPage> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(bottom: 10.0),
-                          child: Center(child: Text("Cadastro de Famílias", style: TextStyle(fontSize: 30,color: Color.fromARGB(255, 14, 174, 62,),))),
+                          child: Center(child: Text("Cadastro de Pessoas", style: TextStyle(fontSize: 30,color: Color.fromARGB(255, 14, 174, 62,),))),
                         ),
                         Text("Insira os dados", style: TextStyle(color: Color.fromARGB(255, 14, 174, 62),)),
                         TextField(

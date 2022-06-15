@@ -105,7 +105,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   ),
                                 ),
                                 onPressed: () {
-                                  Navigator.of(context).pushNamed('/helpProfile');
+                                  Navigator.of(context).pushNamed('/cp');
                                 }, 
                                 child: Text("AJUDA", style: TextStyle(fontSize: 15),
                                 ),

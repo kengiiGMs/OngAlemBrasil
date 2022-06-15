@@ -11,32 +11,60 @@ class PersonPage extends StatefulWidget {
 
 class _PersonPageState extends State<PersonPage> {
   final List<PlutoColumn> columns = <PlutoColumn>[
+    
     PlutoColumn(
+      
       title: 'Nome',
       field: 'name',
       type: PlutoColumnType.text(),
+    /*  type: PlutoColumnType.select([
+          'Apple', 'Banana', 'Orange',
+      ]), */
+      enableContextMenu: false,
+      readOnly: true,
+      applyFormatterInEditing: false,
+      frozen: PlutoColumnFrozen.none,
+      textAlign: PlutoColumnTextAlign.center,
+      titleTextAlign: PlutoColumnTextAlign.center,
     ),
     PlutoColumn(
+      
       title: 'Celular',
       field: 'phone',
       type: PlutoColumnType.text(),
+      readOnly: true,
+      applyFormatterInEditing: false,
+      enableContextMenu: false,
+      frozen: PlutoColumnFrozen.none,
+      titleTextAlign: PlutoColumnTextAlign.center,
     ),
     PlutoColumn(
+      
       title: 'Email',
       field: 'email',
       type: PlutoColumnType.text(),
+      readOnly: true,
+      applyFormatterInEditing: false,
+      enableContextMenu: false,
+      frozen: PlutoColumnFrozen.none,
+      titleTextAlign: PlutoColumnTextAlign.center,
     ),
     PlutoColumn(
+      
       title: 'Data de nascimento',
       field: 'date_of_birth',
       type: PlutoColumnType.date(),
+      enableContextMenu: false,
+      readOnly: true,
+      applyFormatterInEditing: false,
+      frozen: PlutoColumnFrozen.none,
     ),
   ];
   final List<PlutoRow> rows = [
     PlutoRow(
       cells: {
         'name': PlutoCell(value: 'Mike'),
-        'phone': PlutoCell(value: '1199402030'),
+        'phone': PlutoCell(value: '11994020310'),
         'date_of_birth': PlutoCell(value: '2021-01-01'),
         'email': PlutoCell(value: 'mike@email.com'),
       },
@@ -68,20 +96,32 @@ class _PersonPageState extends State<PersonPage> {
   late final PlutoGridStateManager stateManager;
     @override
     Widget build(BuildContext context) {
-      return 
-        PlutoGrid(
-          columns: columns,
-          rows: rows,
-          columnGroups: columnGroups,
-          onLoaded: (PlutoGridOnLoadedEvent event) {
-            stateManager = event.stateManager;
-          },
-          onChanged: (PlutoGridOnChangedEvent event) {
-            print(event);
-          },
-          configuration: const PlutoGridConfiguration(
-            enableColumnBorder: true,
-          ),
-        );
+      return Scaffold(
+        body:  PlutoGrid(
+                rowColorCallback: (rowColorContext) =>Colors.lightGreen,
+                columns: columns,
+                rows: rows,
+                columnGroups: columnGroups,
+                onLoaded: (PlutoGridOnLoadedEvent event) {
+                  stateManager = event.stateManager;
+                  stateManager.setShowColumnFilter(true, notify: false);
+                },
+                onChanged: (PlutoGridOnChangedEvent event) {
+                  print(event);
+                },
+                configuration: PlutoGridConfiguration(
+                  columnHeight: 50.0,
+                  rowHeight: 60.0,
+                  enableColumnBorder: true,
+                  gridBackgroundColor:Colors.green,
+                  gridBorderColor:Colors.black,
+                  activatedColor: Colors.lightGreenAccent,
+                  activatedBorderColor: Colors.white,
+                  gridBorderRadius: BorderRadius.circular(5),
+                ),
+              ),
+      );
   }
 }
+
+
