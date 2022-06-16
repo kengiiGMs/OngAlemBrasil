@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:ong_alem_brasil/Profile/ProfilePage.dart';
-import 'package:ong_alem_brasil/Query/QueryPage.dart';
-import 'package:ong_alem_brasil/Register/RegisterPage.dart';
+import 'package:ong_alem_brasil/FoodsPage.dart';
+import 'package:ong_alem_brasil/FuncionarioPage.dart';
+import 'package:ong_alem_brasil/PersonPage.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({ Key? key }) : super(key: key);
@@ -11,75 +12,75 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int pageNow = 0;
-  List<Widget> _pages = [
-    QueryPage(),
-    RegisterPage(),
-    ProfilePage(),
-  ];
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBody: true,
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(70),
-          child: AppBar(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.only( bottomRight: Radius.circular(30),
-              ),
-            ),
-            centerTitle: true,
-              leading: Padding(
-                padding: EdgeInsets.only(right: 10.0),
-                ),
-            flexibleSpace: 
-              Container(
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        extendBody: true,
+        appBar:  AppBar(
+              centerTitle: true,
+              title: Text("Ong Alem Brasil"),
+              flexibleSpace: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    bottomRight: Radius.circular(30),
-                  ),
+                  gradient: LinearGradient(colors: [
+                    Colors.green, Colors.lightGreen
+                  ], begin: Alignment.bottomRight, end: Alignment.topLeft)
                 ),
               ),
-            title: Text("Ong Alem Brasil"),
-          ),
-        ),
-        body: PageView(
-          children: [
-            _pages[pageNow],
-          ],
-        ),
-          bottomNavigationBar: BottomNavigationBar(
-            selectedIconTheme: IconThemeData(color: Colors.lightGreenAccent, size: 28),
-            selectedItemColor: Colors.lightGreenAccent,
-            backgroundColor: Colors.green,
-            unselectedIconTheme: IconThemeData(
-              color: Colors.white,
+              bottom: TabBar(
+                indicatorColor: Colors.white,
+                tabs: [
+                Tab(icon: Icon(Icons.person), text: "Pessoas",),
+                Tab(icon: Icon(Icons.person), text: "Cestas",),
+                Tab(icon: Icon(Icons.person), text: "Funcionarios",),
+              ]),
             ),
-              unselectedItemColor: Colors.white,
-            onTap: (index){
-                setState(() { pageNow = index;}); 
-              }, 
-            currentIndex: pageNow,
-            items: [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.content_paste_search_outlined),
-                backgroundColor: Colors.green,
-                label: "CONSULTA"
-              ),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.assignment_rounded),
-                  backgroundColor: Colors.green,
-                  label: "CADASTRO"
-                ),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.person),
-                  backgroundColor: Colors.green,
-                  label: "PERFIL"
-                ),
+          body: PageView(
+            children: [
+              TabBarView(children: [
+                PersonPage(),
+                FoodsPage(),
+                FuncionarioPage(),
+              ])
             ],
           ),
+          drawer: Drawer(
+          child: ListView(
+            children: [
+              UserAccountsDrawerHeader(
+                currentAccountPicture: ClipOval(
+                  child: Image.asset('Perfil.png')
+                  ),
+                  accountName: Text('Mahki'), 
+                  accountEmail: Text('Mahki@gmail.com'),
+                  ),
+                ListTile(
+                leading: Icon(Icons.account_box_outlined),
+                title: Text('Alterar Perfil'),
+                onTap: () {
+                  Navigator.of(context).pushNamed('/changeProfile');
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.announcement),
+                title: Text('Ajuda'),
+                onTap: () {
+                  Navigator.of(context).pushNamed('/helpProfile');
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.backspace_outlined),
+                title: Text('Sair'),
+                onTap: () {
+                  Navigator.of(context).pushNamedAndRemoveUntil('/',(Route< dynamic > route) => false );
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
-

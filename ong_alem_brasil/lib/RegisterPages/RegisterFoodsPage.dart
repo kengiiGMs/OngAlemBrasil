@@ -14,6 +14,7 @@ class _RegisterFoodPageState extends State<RegisterFoodPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.fromLTRB(10, 15, 10, 60),
@@ -45,12 +46,6 @@ class _RegisterFoodPageState extends State<RegisterFoodPage> {
                           child: Center(child: Text("Cadastro de Cestas", style: TextStyle(fontSize: 30,color: Color.fromARGB(255, 14, 174, 62,),))),
                         ),
                         Text("Insira os dados", style: TextStyle(color: Color.fromARGB(255, 14, 174, 62),)),
-                        TextField(
-                          decoration: InputDecoration(labelText: "Código",
-                          hintText: "Digite o código",
-                          hintStyle: TextStyle(color: Colors.grey),
-                          ),
-                        ),
                         TextField(
                           decoration: InputDecoration(
                             labelText: "Tipo",

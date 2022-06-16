@@ -3,18 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-class RegisterBillPage extends StatefulWidget {
-  const RegisterBillPage({Key? key}) : super(key: key);
+class RegisterPersonPage extends StatefulWidget {
+  const RegisterPersonPage({Key? key}) : super(key: key);
 
   @override
-  State<RegisterBillPage> createState() => _RegisterBillPageState();
+  State<RegisterPersonPage> createState() => _RegisterPersonPageState();
 }
 
-class _RegisterBillPageState extends State<RegisterBillPage> {
+class _RegisterPersonPageState extends State<RegisterPersonPage> {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      body: SingleChildScrollView(
+    return Scaffold(
+      appBar: AppBar(),
+        body:SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.fromLTRB(10, 15, 10, 60),
             child: Center(
@@ -42,34 +43,70 @@ class _RegisterBillPageState extends State<RegisterBillPage> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(bottom: 10.0),
-                          child: Center(child: Text("Cadastro de Contas", style: TextStyle(fontSize: 30,color: Color.fromARGB(255, 14, 174, 62,),))),
+                          child: Center(child: Text("Cadastro de Pessoas", style: TextStyle(fontSize: 30,color: Color.fromARGB(255, 14, 174, 62,),))),
                         ),
                         Text("Insira os dados", style: TextStyle(color: Color.fromARGB(255, 14, 174, 62),)),
                         TextField(
-                          decoration: InputDecoration(labelText: "Código",
-                          hintText: "Digite o código",
-                          hintStyle: TextStyle(color: Colors.grey),
-                          ),
-                        ),
-                        TextField(
                           decoration: InputDecoration(
-                            labelText: "Tipo de Conta",
-                            hintText: "Digite o Tipo de Conta",
+                            labelText: "Nome",
+                            hintText: "Digite o nome",
                             hintStyle: TextStyle(color: Colors.grey),
                           ),
                         ),
                         TextField(
                           decoration: InputDecoration(
-                            labelText: "Data de vencimento",
-                            hintText: "Digite a data de vencimento",
+                            labelText: "Data de nascimento",
+                            hintText: "Digite a data de nascimento",
                           hintStyle: TextStyle(color: Colors.grey),
                           ),
                         ),
                         TextField(
                           decoration: InputDecoration(
-                            labelText: "Valor",
-                            hintText: "Digite o valor",
+                            labelText: "Celular",
+                            hintText: "Digite o celular",
                             hintStyle: TextStyle(color: Colors.grey),
+                          ),
+                        ),
+                        TextField(
+                          decoration: InputDecoration(
+                            labelText: "Whatsapp",
+                            hintText: "Digite o Whatsapp",
+                            hintStyle: TextStyle(color: Colors.grey),
+                          ),
+                        ),
+                        TextField(
+                          decoration: InputDecoration(
+                            labelText: "Telefone",
+                            hintText: "Digite o telefone",
+                            hintStyle: TextStyle(color: Colors.grey),
+                          ),
+                        ),
+                        TextField(
+                          decoration: InputDecoration(
+                            labelText: "Email",
+                            hintText: "Digite o email",
+                            hintStyle: TextStyle(color: Colors.grey),
+                          ),
+                        ),
+                        TextField(
+                          decoration: InputDecoration(
+                            labelText: "CEP",
+                            hintText: "Digite o CEP",
+                            hintStyle: TextStyle(color: Colors.grey),
+                          ),
+                        ),
+                        TextField(
+                          decoration: InputDecoration(
+                            labelText: "Número da residência",
+                            hintText: "Digite o residência",
+                          hintStyle: TextStyle(color: Colors.grey),
+                          ),
+                        ),
+                        TextField(
+                          decoration: InputDecoration(
+                            labelText: "Complemento",
+                            hintText: "Digite o complemento",
+                          hintStyle: TextStyle(color: Colors.grey),
                           ),
                         ),
                         Padding(
@@ -96,5 +133,5 @@ class _RegisterBillPageState extends State<RegisterBillPage> {
           ), 
         ),
     );
-  }
+  } 
 }

@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:ong_alem_brasil/CreateProfile/CreateProfilePage.dart';
 import 'package:ong_alem_brasil/Login/login.dart';
-import 'package:ong_alem_brasil/Profile/ProfilePage.dart';
-import 'package:ong_alem_brasil/Profile/ProfilePages/HelpPage.dart';
-import 'Profile/ProfilePages/ChangeProfilePage.dart';
-import 'Query/QueryPage.dart';
-import 'Register/RegisterPage.dart';
+import 'package:ong_alem_brasil/QueryPages/QuerryFunc.dart';
+import 'package:ong_alem_brasil/QueryPages/QuerryPerson.dart';
+import 'package:ong_alem_brasil/RegisterPages/RegisterFoodsPage.dart';
+import 'package:ong_alem_brasil/RegisterPages/RegisterPersonPage.dart';
+import 'ProfilePages/HelpPage.dart';
+import 'ProfilePages/ChangeProfilePage.dart';
+import 'QueryPages/QuerryFoods.dart';
+import 'RegisterPages/RegisterFuncPage.dart';
 import 'RequestPassword/RequestPasswordPage.dart';
 import 'homePage.dart';
 
@@ -26,14 +29,16 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => LoginPage(),
         '/home': (context) => HomePage(),
-        '/profile':(context) => ProfilePage(),
-        '/register':(context) => RegisterPage(),
-        '/query':(context) => QueryPage(),
         '/requestPassword':(context) => RequestPasswordPage(),
         '/createProfile':(context) => CreateProfilePage(),
         '/helpProfile':(context) => HelpPage(),
         '/changeProfile':(context) => ChangeProfilePage(),
-        
+        '/querryPerson':(context) => QuerryPerson(),
+        '/querryFood':(context) => QuerryFoods(),
+        '/querryFunc':(context) => QuerryFunc(),
+        '/registerPerson':(context) => RegisterPersonPage(),
+        '/registerFood':(context) => RegisterFoodPage(),
+        '/registerFunc':(context) => RegisterFuncPage(),
       },
     );
   }
