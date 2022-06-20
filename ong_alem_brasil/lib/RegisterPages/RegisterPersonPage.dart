@@ -69,13 +69,6 @@ class _RegisterPersonPageState extends State<RegisterPersonPage> {
                         ),
                         TextField(
                           decoration: InputDecoration(
-                            labelText: "Whatsapp",
-                            hintText: "Digite o Whatsapp",
-                            hintStyle: TextStyle(color: Colors.grey),
-                          ),
-                        ),
-                        TextField(
-                          decoration: InputDecoration(
                             labelText: "Telefone",
                             hintText: "Digite o telefone",
                             hintStyle: TextStyle(color: Colors.grey),

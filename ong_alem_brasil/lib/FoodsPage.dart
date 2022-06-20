@@ -114,26 +114,6 @@ class _PersonDataState extends State<PersonData> {
                   ],
                 ),
               ),
-              Container(
-                padding: EdgeInsets.all(10),
-                child: Column(
-                  children: [
-                    Icon(Icons.document_scanner, size: 70, color: Colors.white,),
-                    Text("Tipo diferentes", style: TextStyle(color: Colors.white, fontSize: 13),),
-                    Text("2", style: TextStyle(color: Colors.white, fontSize: 16),),
-                  ],
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.all(10),
-                child: Column(
-                  children: [
-                    Icon(Icons.shopping_bag, size: 70, color: Colors.white,),
-                    Text("Maior Cesta", style: TextStyle(color: Colors.white, fontSize: 13),),
-                    Text("25 produtos", style: TextStyle(color: Colors.white, fontSize: 16),),
-                  ],
-                ),
-              ),
             ],
           ),
           Container(

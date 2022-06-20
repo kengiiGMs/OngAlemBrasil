@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
                 indicatorColor: Colors.white,
                 tabs: [
                 Tab(icon: Icon(Icons.person), text: "Pessoas",),
-                Tab(icon: Icon(Icons.person), text: "Cestas",),
+                Tab(icon: Icon(Icons.food_bank), text: "Cestas",),
                 Tab(icon: Icon(Icons.person), text: "Funcionarios",),
               ]),
             ),

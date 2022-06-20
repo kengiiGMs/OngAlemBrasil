@@ -54,13 +54,6 @@ class _RegisterFuncPageState extends State<RegisterFuncPage> {
                             hintStyle: TextStyle(color: Colors.grey),
                           ),
                         ),
-                        TextField(
-                          decoration: InputDecoration(
-                            labelText: "Nome",
-                            hintText: "Digite o nome do Funcionario",
-                          hintStyle: TextStyle(color: Colors.grey),
-                          ),
-                        ),
                         Padding(
                           padding: const EdgeInsets.only(top: 14.0),
                           child: ElevatedButton(

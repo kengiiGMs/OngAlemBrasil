@@ -109,17 +109,7 @@ class _PersonDataState extends State<PersonData> {
                     Icon(Icons.person, size: 70, color: Colors.white,),
                     Text("Pessoas", style: TextStyle(color: Colors.white, fontSize: 13),),
                     Text("Cadastradas", style: TextStyle(color: Colors.white, fontSize: 13),),
-                    Text("Total: 4", style: TextStyle(color: Colors.white, fontSize: 16),),
-                  ],
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.all(10),
-                child: Column(
-                  children: [
-                    Icon(Icons.add_location_outlined, size: 70, color: Colors.white,),
-                    Text("Endereços Cadastrados", style: TextStyle(color: Colors.white, fontSize: 13),),
-                    Text("Total: 4", style: TextStyle(color: Colors.white, fontSize: 16),),
+                    Text("Total: 21", style: TextStyle(color: Colors.white, fontSize: 16),),
                   ],
                 ),
               ),

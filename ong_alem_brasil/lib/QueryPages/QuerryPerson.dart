@@ -13,7 +13,7 @@ class _QuerryPersonState extends State<QuerryPerson> {
   final List<PlutoColumn> columns = <PlutoColumn>[
     
     PlutoColumn(
-      width: 120,
+      width: 220,
       title: 'Nome',
       field: 'name',
       type: PlutoColumnType.text(),
@@ -28,7 +28,7 @@ class _QuerryPersonState extends State<QuerryPerson> {
       titleTextAlign: PlutoColumnTextAlign.center,
     ),
     PlutoColumn(
-      width: 120,
+      width: 164,
       title: 'Celular',
       field: 'phone',
       type: PlutoColumnType.text(),
@@ -40,7 +40,7 @@ class _QuerryPersonState extends State<QuerryPerson> {
       titleTextAlign: PlutoColumnTextAlign.center,
     ),
     PlutoColumn(
-      width: 180,
+      width: 200,
       title: 'Email',
       field: 'email',
       type: PlutoColumnType.text(),
@@ -49,9 +49,10 @@ class _QuerryPersonState extends State<QuerryPerson> {
       enableContextMenu: false,
       frozen: PlutoColumnFrozen.none,
       titleTextAlign: PlutoColumnTextAlign.center,
+      textAlign: PlutoColumnTextAlign.center,
     ),
     PlutoColumn(
-      width: 150,
+      width: 160,
       title: 'Data de nascimento',
       field: 'date_of_birth',
       type: PlutoColumnType.date(),
@@ -62,7 +63,7 @@ class _QuerryPersonState extends State<QuerryPerson> {
       textAlign: PlutoColumnTextAlign.center,
       frozen: PlutoColumnFrozen.none,
     ),
-     PlutoColumn(
+    PlutoColumn(
       width: 150,
       title: 'CEP',
       field: 'cep',
@@ -78,7 +79,7 @@ class _QuerryPersonState extends State<QuerryPerson> {
   final List<PlutoRow> rows = [
     PlutoRow(
       cells: {
-        'name': PlutoCell(value: 'Mike'),
+        'name': PlutoCell(value: 'Mike Alvarez Augusto'),
         'phone': PlutoCell(value: '11994020310'),
         'date_of_birth': PlutoCell(value: '2021-01-01'),
         'email': PlutoCell(value: 'mike@email.com'),
@@ -88,7 +89,7 @@ class _QuerryPersonState extends State<QuerryPerson> {
     ),
     PlutoRow(
       cells: {
-        'name': PlutoCell(value: 'Jack'),
+        'name': PlutoCell(value: 'Jack Ribeira da Silva'),
         'phone': PlutoCell(value: '11993023040'),
         'date_of_birth': PlutoCell(value: '2021-02-01'),
         'email': PlutoCell(value: 'jack@email.com'),
@@ -97,7 +98,7 @@ class _QuerryPersonState extends State<QuerryPerson> {
     ),
     PlutoRow(
       cells: {
-        'name': PlutoCell(value: 'Suzi'),
+        'name': PlutoCell(value: 'Suzi Almeida'),
         'phone': PlutoCell(value: '11994024582'),
         'date_of_birth': PlutoCell(value: '2021-03-01'),
         'email': PlutoCell(value: 'suzi@email.com'),
@@ -119,29 +120,41 @@ class _QuerryPersonState extends State<QuerryPerson> {
     Widget build(BuildContext context) {
       return Scaffold(
         appBar: AppBar(),
-        body:  PlutoGrid(
-                rowColorCallback: (rowColorContext) =>Colors.lightGreen,
-                columns: columns,
-                rows: rows,
-                columnGroups: columnGroups,
-                onLoaded: (PlutoGridOnLoadedEvent event) {
-                  stateManager = event.stateManager;
-                  stateManager.setShowColumnFilter(true, notify: false);
-                },
-                onChanged: (PlutoGridOnChangedEvent event) {
-                  print(event);
-                },
-                configuration: PlutoGridConfiguration(
-                  columnHeight: 30.0,
-                  rowHeight: 40.0,
-                  enableColumnBorder: true,
-                  gridBackgroundColor:Colors.green,
-                  gridBorderColor:Colors.black,
-                  activatedColor: Colors.lightGreenAccent,
-                  activatedBorderColor: Colors.white,
-                  gridBorderRadius: BorderRadius.circular(5),
-                ),
-              ),
+        body:  Padding(
+          padding: const EdgeInsets.all(18.0),
+          child: Center(
+            child: SizedBox(
+              width: 900,
+              child: PlutoGrid(
+                      rowColorCallback: (rowColorContext) =>Colors.lightGreen,
+                      columns: columns,
+                      rows: rows,
+                      columnGroups: columnGroups,
+                      onLoaded: (PlutoGridOnLoadedEvent event) {
+                        stateManager = event.stateManager;
+                        stateManager.setShowColumnFilter(true, notify: false);
+                      },
+                      onChanged: (PlutoGridOnChangedEvent event) {
+                        print(event);
+                      },
+                      configuration: PlutoGridConfiguration(
+                        columnHeight: 30.0,
+                        rowHeight: 40.0,
+                        enableColumnBorder: true,
+                        gridBackgroundColor:Colors.green,
+                        gridBorderColor:Colors.black,
+                        activatedColor: Colors.lightGreenAccent,
+                        activatedBorderColor: Colors.white,
+                        gridBorderRadius: BorderRadius.circular(5),
+                      ),
+                      createFooter: (stateManager) {
+                          stateManager.setPageSize(20, notify: false); // default 40
+                          return PlutoPagination(stateManager);
+                        },
+                    ),
+            ),
+          ),
+        ),
       );
   }
 }

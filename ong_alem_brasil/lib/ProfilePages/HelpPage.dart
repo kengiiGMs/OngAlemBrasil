@@ -14,45 +14,57 @@ class _HelpPageState extends State<HelpPage> {
     return  Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: Column(
-          children: [
-            Container(
-              margin: EdgeInsets.fromLTRB(20, 20, 20, 10),
-              child: Text("Caso Tenha alguma dúvida durante o uso do Aplicativo ou encontre algum problema, escreva aqui embaixo o seu comentário, que assim que possivel iremos lhe responder.",
-              textAlign: TextAlign.justify, style: TextStyle(fontSize: 18),
+        child: Container(
+          margin: EdgeInsets.all(20),
+          width: 900,
+          decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.green,
+            width: 4.0,
+            style: BorderStyle.solid
+          ),
+          borderRadius: BorderRadius.circular(20),
+        ),
+          child: Column(
+            children: [
+              Container(
+                margin: EdgeInsets.fromLTRB(20, 120, 20, 15),
+                child: Text("Caso Tenha alguma dúvida durante o uso do Aplicativo ou encontre algum problema, escreva aqui embaixo o seu comentário, que assim que possivel iremos lhe responder.",
+                textAlign: TextAlign.justify, style: TextStyle(fontSize: 18),
+                ),
               ),
-            ),
-            Container(
-              margin: EdgeInsets.fromLTRB(20, 20, 20, 10),
-              child: ConstrainedBox(
-                constraints: BoxConstraints(maxHeight: 150),
-                child: TextField(
-                  keyboardType: TextInputType.multiline,
-                  maxLines: null,
-                  autofocus: true,
-                  decoration: InputDecoration(
-                    hintText: "Digite aqui a sua mensagem",
+              Container(
+                margin: EdgeInsets.fromLTRB(20, 10, 20, 30),
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(maxHeight: 150),
+                  child: TextField(
+                    keyboardType: TextInputType.multiline,
+                    maxLines: null,
+                    autofocus: true,
+                    decoration: InputDecoration(
+                      hintText: "Digite aqui a sua mensagem",
+                    ),
                   ),
                 ),
               ),
+              Container(
+              padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    fixedSize: const Size(350, 45), 
+                    primary: Color.fromARGB(255, 14, 174, 62),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    )
+                  ),
+                  onPressed: () {
+                  },
+                  child: const Text('ENVIAR', style: TextStyle(fontSize: 17),
+                  ),
+                ),
             ),
-            Container(
-            padding: EdgeInsets.fromLTRB(0, 20, 0, 10),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  fixedSize: const Size(350, 45), 
-                  primary: Color.fromARGB(255, 14, 174, 62),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  )
-                ),
-                onPressed: () {
-                },
-                child: const Text('ENVIAR', style: TextStyle(fontSize: 17),
-                ),
-              ),
+            ],
           ),
-          ],
         ),
       )
     );

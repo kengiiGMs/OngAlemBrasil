@@ -1,4 +1,5 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:pluto_grid/pluto_grid.dart';
@@ -15,23 +16,8 @@ class _QuerryFoodsState extends State<QuerryFoods> {
  final List<PlutoColumn> columns = <PlutoColumn>[
     
     PlutoColumn(
-      width: 120,
-      title: 'Tipo',
-      field: 'tipo',
-      type: PlutoColumnType.text(),
-    /*  type: PlutoColumnType.select([
-          'Apple', 'Banana', 'Orange',
-      ]), */
-      enableContextMenu: false,
-      readOnly: true,
-      applyFormatterInEditing: false,
-      frozen: PlutoColumnFrozen.none,
-      textAlign: PlutoColumnTextAlign.center,
-      titleTextAlign: PlutoColumnTextAlign.center,
-    ),
-    PlutoColumn(
-      width: 190,
-      title: 'Quantidade de produtos',
+      width: 447,
+      title: 'Quantidade',
       field: 'quantidade',
       type: PlutoColumnType.number(),
       readOnly: true,
@@ -42,7 +28,7 @@ class _QuerryFoodsState extends State<QuerryFoods> {
       titleTextAlign: PlutoColumnTextAlign.center,
     ),
     PlutoColumn(
-      width: 180,
+      width: 447,
       title: 'Data de Recebimento',
       field: 'date',
       type: PlutoColumnType.date(),
@@ -55,13 +41,6 @@ class _QuerryFoodsState extends State<QuerryFoods> {
     ),
   ];
   final List<PlutoRow> rows = [
-    PlutoRow(
-      cells: {
-        'tipo': PlutoCell(value: 'Basica'),
-        'quantidade': PlutoCell(value: 15),
-        'date': PlutoCell(value: '2022-02-01'),
-      },
-    ),
     PlutoRow(
       cells: {
         'tipo': PlutoCell(value: 'Basica'),
@@ -85,7 +64,6 @@ class _QuerryFoodsState extends State<QuerryFoods> {
     ),
   ];
   final List<PlutoColumnGroup> columnGroups = [
-    PlutoColumnGroup(title: 'Tipo', fields: ['tipo'], expandedColumn: true),
     PlutoColumnGroup(title: 'Quantidade de Produtos', fields: ['quantidade'], expandedColumn: true),
     PlutoColumnGroup(title: 'Data de Recebimento', fields: ['date'], expandedColumn: true),
   ];
@@ -94,25 +72,37 @@ class _QuerryFoodsState extends State<QuerryFoods> {
     Widget build(BuildContext context) {
       return Scaffold(
         appBar: AppBar(),
-        body:  PlutoGrid(
-                rowColorCallback: (rowColorContext) =>Colors.lightGreen,
-                columns: columns,
-                rows: rows,
-                columnGroups: columnGroups,
-                onChanged: (PlutoGridOnChangedEvent event) {
-                  print(event);
-                },
-                configuration: PlutoGridConfiguration(
-                  columnHeight: 30.0,
-                  rowHeight: 40.0,
-                  enableColumnBorder: true,
-                  gridBackgroundColor:Colors.green,
-                  gridBorderColor:Colors.black,
-                  activatedColor: Colors.lightGreenAccent,
-                  activatedBorderColor: Colors.white,
-                  gridBorderRadius: BorderRadius.circular(5),
-                ),
-              ),
+        body:  Padding(
+          padding: const EdgeInsets.all(18.0),
+          child: Center(
+            child: SizedBox(
+              width: 900,
+              child: PlutoGrid(
+                      rowColorCallback: (rowColorContext) =>Colors.lightGreen,
+                      columns: columns,
+                      rows: rows,
+                      columnGroups: columnGroups,
+                      onChanged: (PlutoGridOnChangedEvent event) {
+                        print(event);
+                      },
+                      configuration: PlutoGridConfiguration(
+                        columnHeight: 30.0,
+                        rowHeight: 40.0,
+                        enableColumnBorder: true,
+                        gridBackgroundColor:Colors.green,
+                        gridBorderColor:Colors.black,
+                        activatedColor: Colors.lightGreenAccent,
+                        activatedBorderColor: Colors.white,
+                        gridBorderRadius: BorderRadius.circular(5),
+                      ),
+                      createFooter: (stateManager) {
+                          stateManager.setPageSize(20, notify: false); // default 40
+                          return PlutoPagination(stateManager);
+                        },
+                    ),
+            ),
+          ),
+        ),
       );
   }
 }

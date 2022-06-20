@@ -48,15 +48,15 @@ class _RegisterFoodPageState extends State<RegisterFoodPage> {
                         Text("Insira os dados", style: TextStyle(color: Color.fromARGB(255, 14, 174, 62),)),
                         TextField(
                           decoration: InputDecoration(
-                            labelText: "Tipo",
-                            hintText: "Digite o tipo de Cesta",
-                            hintStyle: TextStyle(color: Colors.grey),
+                            labelText: "Quantidade",
+                            hintText: "Digite a quantidade de Cestas recebidas",
+                          hintStyle: TextStyle(color: Colors.grey),
                           ),
                         ),
                         TextField(
                           decoration: InputDecoration(
-                            labelText: "Quantidade de Produtos",
-                            hintText: "Digite a quantidade de Produtos",
+                            labelText: "Data",
+                            hintText: "Digite a data de recebimento das Cestas recebidas",
                           hintStyle: TextStyle(color: Colors.grey),
                           ),
                         ),
